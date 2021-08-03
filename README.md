@@ -23,7 +23,7 @@ Los datasets utilizados son:
   
 * **"season1_df_modified"** : dataset creado a partir del friends_quotes dataset y modificado manualmente. Este contiene las conversaciones por parejas (no contiene las conversaciones grupales), de los 9 personajes que más frases tienen en la primera temporada
 
-* **"script_ross"** : dataset creado a partir del friends_quotes dataset y modificado manualmente. Este contiene los diálogos entre Ross y otras personas de la serie en la primera temporada --> escogi a Ross ya que era el personaje con más diálogo en la primera temporada por parejas. 
+* **"script_ross"** : dataset creado a partir del friends_quotes dataset y modificado manualmente. Este contiene los diálogos entre Ross y otras personas de la serie en la primera temporada --> escogí a Ross ya que era el personaje con más diálogo en la primera temporada por parejas. 
 
 <h2> <b> PREGUNTAS </b></h2>
 
@@ -51,5 +51,29 @@ He seleccionado las 10 palabras positivas y negativas más utilizadas por person
 
 <h3> <b> PREGUNTA 5: Clasificador de "quotes": ¿Quién ha dicho qué? </b> </h3>
 
+He intentado hacer un clasificador de "quotes"
+* Primero intenté utilizar el método TF-IDF y utilicé: 
+ * Stemming, Lemmatization, StopWords
+ * TfidfVectorizer, utilizando diferentes valores de "ngram_range", "min_df"
+ * El modelo NearestNeighbours (Unsupervised) y KNNeighbours (supervised)
+ * La clasificación con 2 personajes (Ross y Rachel) y luego con los seis: 
+ 
+Pero la confusion_matrix y el classification_report no fueron los esperados. 
+
+![image](https://user-images.githubusercontent.com/77194988/128016824-459b719c-3514-4a77-82b9-8c0ebfbe2d99.png)
+
+* Como segundo opción intenté utilizar el modelo BERT, pero los resultados no mejoraron mucho. 
+
+Realmente creo que el problema no son los modelos utilizados, sino los datos analizados. A pesar de que la mayoría de personajes tiene "quotes" que dicen bastante a menudo (ej: Joey (How are you doing?), Ross (We were on a break!). Monica (I know!)), no las dicen tan a menudo, y a pesar de ser unos personajes muy diferentes los unos de los otros, probablemente todos utilizan frases muy parecidas, y lo que los diferencia no es tanto su forma de hablar, sino su personalidad, sus gestos, etc. 
+
 <h3> <b> PREGUNTA 6: Generador de diálogo: ¿qué diría Ross? </b> </h3>
+
+Dado que Ross es el personaje con más líneas de texto en las conversaciones por parejas de la primera temporada, he decidido crear un generador de diálogo para poder tener una conversación con él. He adaptado el excel manualmente para asegurarme que el diálogo fuera de pregunta- respuesta, es decir, que no hubiese dos líneas seguidas de un mismo personaje. 
+
+* El código utilizado es el especificado en este artículo: https://towardsdatascience.com/make-your-own-rick-sanchez-bot-with-transformers-and-dialogpt-fine-tuning-f85e6d1f4e30
+* El modelo utilizado es GPT2 y he utilizado el dataset ""script_ross" para entrenar el modelo y hacer el finetuning con el DialogGPT de Hugging Face 
+
+Este es un ejemplo del diálogo obtenido:
+
+![image](https://user-images.githubusercontent.com/77194988/128018458-6b8c8a37-0d8e-4b0f-aa2b-ae484e6a204a.png)
 
