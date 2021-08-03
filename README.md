@@ -36,11 +36,18 @@ Para responder esta pregunta he visualizado un countplot con seaborn y he filtra
 Con la información del count plot podemos ver que los 9 personajes que más líneas de texto tienen en la primera temporada son: Ross,Monica, Rachel, Chandler, Joey, Phoebe, Carol, Susan, Janice. He representado las conversaciones entre ellos mediante un nx.Graph(). 
 
 
-<h3> <b> PREGUNTA 3: ¿Qué actores/actrices invitados aparecieron durante las 10 temporadas?¿Incrementó el número de actores/actrices invitados/as a lo largo de las 10 temporadas? </b> </h3>
+<h3> <b> PREGUNTA 3: ¿Qué actores/actrices invitados aparecieron durante las 10 temporadas? </b> </h3>
 
-He visualizado la evolución de la  lMediante plotly.express 
+He visualizado mediante un bar plot con plotly.express la evolución de los/las actores/actrices invitados/as a lo largo de las 10 temporadas, mostrando también la cantidad de líneas de texto de cada uno de ellos.
 
 <h3> <b> PREGUNTA 4: ¿Quién de los 6 personajes principales es más positivo/negativo? </b> </h3>
+ 
+Para hacer este análisis he utilizado:
+
+* **CountVectorizer** 
+* **Librería Textblob**: he considerado palabras positivas aquellas palabras con una puntuación superior a 0.5 y negativas aquellas con una puntación inferior a -0.5
+
+He seleccionado las 10 palabras positivas y negativas más utilizadas por personaje y representado los resultados con un "diverging bar chart" mediante ploty y ipywidgets 
 
 <h3> <b> PREGUNTA 5: Clasificador de "quotes": ¿Quién ha dicho qué? </b> </h3>
 
