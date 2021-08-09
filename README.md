@@ -71,7 +71,7 @@ Realmente creo que el problema no son los modelos utilizados, sino los datos ana
 Dado que Ross es el personaje con más líneas de texto en las conversaciones por parejas de la primera temporada, he decidido crear un generador de diálogo para poder tener una conversación con él. He adaptado el excel manualmente para asegurarme que el diálogo fuera de pregunta- respuesta, es decir, que no hubiese dos líneas seguidas de un mismo personaje. 
 
 * El código utilizado es el especificado en este artículo: https://towardsdatascience.com/make-your-own-rick-sanchez-bot-with-transformers-and-dialogpt-fine-tuning-f85e6d1f4e30
-* El modelo utilizado es GPT2 y he utilizado el dataset ""script_ross" para entrenar el modelo y hacer el finetuning con el DialogGPT de Hugging Face 
+* El modelo utilizado es GPT2 y he utilizado el dataset ""script_ross" para entrenar el modelo y hacer el finetuning con el DialoGPT de Hugging Face 
 
 Este es un ejemplo del diálogo obtenido:
 
